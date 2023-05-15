@@ -12,16 +12,16 @@ export default function Jogo(props) {
     let {palavra, setPalavra, acertos, setAcertos, game, setGame, erros, setErros} = props;
     const imagemForca = [imagemForca0, imagemForca1, imagemForca2, imagemForca3, imagemForca4, imagemForca5, imagemForca6];
     let numeroErros = erros.length;
-    console.log(numeroErros);
     function comparador() { 
         return Math.random() - 0.5; 
     }
     function iniciarJogo() {
         setGame(1);
         setPalavra(palavras.sort(comparador)[0]);
-        console.log(palavra);
         const novoErros = [];
         setErros(novoErros);
+        const novoAcertos = [];
+        setAcertos(novoAcertos);
     }
     return (
       <div>
@@ -29,12 +29,12 @@ export default function Jogo(props) {
             <img src={imagemForca[numeroErros]} alt="forca"/>
             <div className='botao-palavra'>
                 <button onClick={iniciarJogo} >Escolher Palavra</button>
-                <ul className='palavra'>{palavra.split("").map((letra, indice) =>
+                <ul className={`palavra ${palavra.length === acertos.length ? 'verde' : ''} ${erros.length === 6 ? 'vermelho' : ''}`}>{palavra.split("").map((letra, indice) =>
                     <li key={indice}>{acertos.includes(letra) ? letra : '_ '}</li>
                     )}</ul>
             </div>
         </div>
-        <Letras game={game} palavra={palavra} acertos={acertos} setAcertos={setAcertos} erros={erros} setErros={setErros}/>
+        <Letras game={game} setGame={setGame} palavra={palavra} acertos={acertos} setAcertos={setAcertos} erros={erros} setErros={setErros}/>
       </div>
     );
 }

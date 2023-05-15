@@ -1,14 +1,20 @@
 export default function Letras(props) {
     const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    let {game, palavra, acertos, setAcertos, erros, setErros} = props;
+    let {game, setGame, palavra, acertos, setAcertos, erros, setErros} = props;
     function pressionarLetra(letra) {
-        if(palavra.includes(letra)) {
-            const novoAcertos = [...acertos, letra];
-            setAcertos(novoAcertos);
-        }
-        else {
-            const novoErros = [...erros, letra];
-            setErros(novoErros);
+        if (game === 1) {
+            if(palavra.includes(letra)) {
+                const novoAcertos = [...acertos, letra];
+                setAcertos(novoAcertos);
+                if (novoAcertos.length === palavra.length)
+                    setGame(0);
+            }
+            else {
+                const novoErros = [...erros, letra];
+                setErros(novoErros);
+                if (novoErros.length === 6)
+                    setGame(0);
+            }
         }
     }
     

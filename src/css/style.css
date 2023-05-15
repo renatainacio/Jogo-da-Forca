@@ -84,3 +84,11 @@ ul {
     display: flex;
     flex-wrap: wrap;
 }
+
+.verde {
+    color: #27AE60;
+}
+
+.vermelho {
+    color: red;
+}
