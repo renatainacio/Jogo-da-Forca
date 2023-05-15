@@ -2,9 +2,15 @@ export default function Letras(props) {
     const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     let {game, setGame, palavra, acertos, setAcertos, erros, setErros} = props;
     function pressionarLetra(letra) {
+        let novoAcertos;
         if (game === 1) {
             if(palavra.includes(letra)) {
-                const novoAcertos = [...acertos, letra];
+                novoAcertos = [...acertos];
+                palavra.split("").forEach(element => {
+
+                    if(element === letra)
+                        novoAcertos.push(letra);
+                });
                 setAcertos(novoAcertos);
                 if (novoAcertos.length === palavra.length)
                     setGame(0);

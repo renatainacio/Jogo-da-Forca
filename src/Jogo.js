@@ -7,14 +7,17 @@ import imagemForca4 from './assets/forca4.png'
 import imagemForca5 from './assets/forca5.png'
 import imagemForca6 from './assets/forca6.png'
 import Letras from './Letras'
+import Chute from './Chute'
 
 export default function Jogo(props) {
-    let {palavra, setPalavra, acertos, setAcertos, game, setGame, erros, setErros} = props;
+    let {palavra, setPalavra, acertos, setAcertos, game, setGame, erros, setErros, chute, setChute, chutouCerto, setChutouCerto} = props;
     const imagemForca = [imagemForca0, imagemForca1, imagemForca2, imagemForca3, imagemForca4, imagemForca5, imagemForca6];
     let numeroErros = erros.length;
+
     function comparador() { 
         return Math.random() - 0.5; 
     }
+
     function iniciarJogo() {
         setGame(1);
         setPalavra(palavras.sort(comparador)[0]);
@@ -22,7 +25,10 @@ export default function Jogo(props) {
         setErros(novoErros);
         const novoAcertos = [];
         setAcertos(novoAcertos);
+        setChute('');
+        setChutouCerto(0);
     }
+
     return (
       <div>
         <div className='main'>
@@ -30,11 +36,32 @@ export default function Jogo(props) {
             <div className='botao-palavra'>
                 <button onClick={iniciarJogo} data-test="choose-word">Escolher Palavra</button>
                 <ul data-test="word" className={`palavra ${palavra.length === acertos.length ? 'verde' : ''} ${erros.length === 6 ? 'vermelho' : ''}`}>{palavra.split("").map((letra, indice) =>
-                    <li key={indice}>{acertos.includes(letra) || numeroErros === 6 ? letra : '_ '}</li>
+                    <li key={indice}>{acertos.includes(letra) || numeroErros === 6 || chutouCerto === 1 ? letra : '_ '}</li>
                     )}</ul>
             </div>
         </div>
-        <Letras game={game} setGame={setGame} palavra={palavra} acertos={acertos} setAcertos={setAcertos} erros={erros} setErros={setErros}/>
+        <Letras
+            game={game}
+            setGame={setGame}
+            palavra={palavra}
+            acertos={acertos}
+            setAcertos={setAcertos}
+            erros={erros}
+            setErros={setErros}
+        />
+        <Chute
+            chute={chute}
+            setChute={setChute}
+            game={game}
+            setGame={setGame}
+            acertos={acertos}
+            setAcertos={setAcertos}
+            erros={erros}
+            setErros={setErros}
+            palavra={palavra}
+            chutouCerto={chutouCerto}
+            setChutouCerto={setChutouCerto}
+        />
       </div>
     );
 }
