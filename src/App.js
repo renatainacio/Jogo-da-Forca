@@ -1,7 +1,11 @@
+import Jogo from './Jogo'
+import { useState } from 'react'
+
 export default function App() {
+  const [game, setGame] = useState(0);
   return (
     <div>
-      <h1>Jogo da Forca</h1>
+      <Jogo game={game} setGame={setGame}/>
     </div>
   );
 }
