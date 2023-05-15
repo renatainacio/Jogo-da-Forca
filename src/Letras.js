@@ -24,7 +24,8 @@ export default function Letras(props) {
             <li key={indice}
                 className={`letra ${(game === 0 || erros.includes(letra) || acertos.includes(letra)) ? 'desabilitada' : ''}`} 
                 disabled={(game === 0 || erros.includes(letra) || acertos.includes(letra)) ? true : false}
-                onClick={() => pressionarLetra(letra)}>
+                onClick={() => pressionarLetra(letra)}
+                data-test="letter">
                 {letra}
             </li>
                 )}
