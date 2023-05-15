@@ -33,6 +33,27 @@ ul {
     list-style: none;
 }
 
+.palavra {
+    height: 68px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 50px;
+    line-height: 68px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: #000000;    
+}
+
+.botao-palavra {
+    margin-top: 89px;
+    margin-right:53px;
+    margin-bottom: 97px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .letra {
     width: 40px;
     height: 40px;
