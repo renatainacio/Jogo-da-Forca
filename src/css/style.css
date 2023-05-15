@@ -9,28 +9,10 @@ body {
     text-align: center;
 }
 
-.main {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
 img {
     width:400px;
     margin-left: 38px;
     margin-top: 59px;
-}
-
-.botao-palavra button {
-    margin-top: 89px;
-    margin-right:53px;
-    font-size: 20px;
-    line-height: 23px;
-    color: #FFFFFF;
-    width: 200px;
-    height: 60px;
-    background: #27AE60;
-    border-radius: 8px;
 }
 
 ul {
@@ -49,43 +31,9 @@ ul {
     color: #000000;    
 }
 
-.botao-palavra {
-    margin-top: 89px;
-    margin-right:53px;
-    margin-bottom: 97px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.letra {
-    width: 40px;
-    height: 40px;
-    background: #E1ECF4;
-    border: 1px solid #7AA7C7;
-    border-radius: 3px;
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    color: #39739D;
-    margin-right:6px;
-    margin-left:6px;
-    margin-bottom:12px;
-}
-
 .desabilitada {
     color: #798A9F;
     background: #9FAAB5;
-}
-
-.letras {
-    width: 702px;
-    margin: 71px auto 71px auto;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .verde {
@@ -94,44 +42,4 @@ ul {
 
 .vermelho {
     color: red;
-}
-
-.chute {
-    width: 624px;
-    height: 40px; 
-    margin: 56px auto;
-    display: flex;
-    justify-content: space-between;
-}
-
-.chute p {
-    width: 144px;
-    height: 40px;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 23px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #000000;
-}
-
-.chute input {
-    width: 353px;
-    height: 40px;  
-    background: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 3px; 
-}
-
-.chute button {
-    width: 100px;
-    height: 40px;
-    background: #E1ECF4;
-    border: 1px solid #7AA7C7;
-    border-radius: 3px;
-    font-size: 16px;
-    line-height: 19px;
-    color: #3C76A1;
 }

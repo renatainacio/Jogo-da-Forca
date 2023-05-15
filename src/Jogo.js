@@ -8,6 +8,34 @@ import imagemForca5 from './assets/forca5.png'
 import imagemForca6 from './assets/forca6.png'
 import Letras from './Letras'
 import Chute from './Chute'
+import styled from 'styled-components'
+
+const ButtonIniciarJogo = styled.button`
+margin-top: 89px;
+margin-right:53px;
+font-size: 20px;
+line-height: 23px;
+color: #FFFFFF;
+width: 200px;
+height: 60px;
+background: #27AE60;
+border-radius: 8px;
+`;
+
+const DivBotaoPalavra = styled.div`
+    margin-top: 89px;
+    margin-right:53px;
+    margin-bottom: 97px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+`;
+
+const DivMain = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+`;
 
 export default function Jogo(props) {
     let {palavra, setPalavra, acertos, setAcertos, game, setGame, erros, setErros, chute, setChute, chutouCerto, setChutouCerto} = props;
@@ -31,15 +59,15 @@ export default function Jogo(props) {
 
     return (
       <div>
-        <div className='main'>
+        <DivMain>
             <img src={imagemForca[numeroErros]} alt="forca" data-test="game-image"/>
-            <div className='botao-palavra'>
-                <button onClick={iniciarJogo} data-test="choose-word">Escolher Palavra</button>
+            <DivBotaoPalavra>
+                <ButtonIniciarJogo onClick={iniciarJogo} data-test="choose-word">Escolher Palavra</ButtonIniciarJogo>
                 <ul data-test="word" className={`palavra ${palavra.length === acertos.length || chutouCerto === 1 ? 'verde' : ''} ${erros.length === 6 ? 'vermelho' : ''}`}>{palavra.split("").map((letra, indice) =>
                     <li key={indice}>{acertos.includes(letra) || numeroErros === 6 || chutouCerto === 1 ? letra : '_ '}</li>
                     )}</ul>
-            </div>
-        </div>
+            </DivBotaoPalavra>
+        </DivMain>
         <Letras
             game={game}
             setGame={setGame}

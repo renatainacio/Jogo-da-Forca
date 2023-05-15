@@ -1,3 +1,30 @@
+import styled from 'styled-components'
+
+const LetrasUl = styled.ul`
+    width: 702px;
+    margin: 71px auto 71px auto;
+    display: flex;
+    flex-wrap: wrap;
+`;
+
+const LetraLi = styled.li`
+    width: 40px;
+    height: 40px;
+    background: #E1ECF4;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: #39739D;
+    margin-right:6px;
+    margin-left:6px;
+    margin-bottom:12px;
+`;
+
 export default function Letras(props) {
     const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     let {game, setGame, palavra, acertos, setAcertos, erros, setErros} = props;
@@ -51,16 +78,16 @@ export default function Letras(props) {
     }
     
     return (
-        <ul className="letras">
+        <LetrasUl>
             {alfabeto.map((letra, indice) =>
-            <li key={indice}
+            <LetraLi key={indice}
                 className={`letra ${(game === 0 || erros.includes(letra) || acertos.includes(letra)) ? 'desabilitada' : ''}`} 
                 disabled={(game === 0 || erros.includes(letra) || acertos.includes(letra)) ? true : false}
                 onClick={() => pressionarLetra(letra)}
                 data-test="letter">
                 {letra}
-            </li>
+            </LetraLi>
                 )}
-        </ul>
+        </LetrasUl>
     )
 }
