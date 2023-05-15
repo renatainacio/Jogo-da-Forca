@@ -10,7 +10,6 @@ const LetrasUl = styled.ul`
 const LetraLi = styled.li`
     width: 40px;
     height: 40px;
-    background: #E1ECF4;
     border: 1px solid #7AA7C7;
     border-radius: 3px;
     font-size: 16px;
@@ -19,10 +18,11 @@ const LetraLi = styled.li`
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    color: #39739D;
     margin-right:6px;
     margin-left:6px;
     margin-bottom:12px;
+    background: ${props => props.$desabilitada ? "#9FAAB5" : "#E1ECF4"};
+    color: ${props => props.$desabilitada ? "#798A9F" : "#39739D"};
 `;
 
 export default function Letras(props) {
@@ -81,7 +81,7 @@ export default function Letras(props) {
         <LetrasUl>
             {alfabeto.map((letra, indice) =>
             <LetraLi key={indice}
-                className={`letra ${(game === 0 || erros.includes(letra) || acertos.includes(letra)) ? 'desabilitada' : ''}`} 
+                $desabilitada={(game === 0 || erros.includes(letra) || acertos.includes(letra)) ? true : false}
                 disabled={(game === 0 || erros.includes(letra) || acertos.includes(letra)) ? true : false}
                 onClick={() => pressionarLetra(letra)}
                 data-test="letter">
