@@ -30,7 +30,7 @@ export default function Jogo(props) {
             <div className='botao-palavra'>
                 <button onClick={iniciarJogo} data-test="choose-word">Escolher Palavra</button>
                 <ul data-test="word" className={`palavra ${palavra.length === acertos.length ? 'verde' : ''} ${erros.length === 6 ? 'vermelho' : ''}`}>{palavra.split("").map((letra, indice) =>
-                    <li key={indice}>{acertos.includes(letra) ? letra : '_ '}</li>
+                    <li key={indice}>{acertos.includes(letra) || numeroErros === 6 ? letra : '_ '}</li>
                     )}</ul>
             </div>
         </div>
