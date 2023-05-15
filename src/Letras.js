@@ -21,7 +21,6 @@ export default function Letras(props) {
     
     function contemCaractereEspecial(caracteresEspeciais, palavra) {
         const arrayPalavra = palavra.split("");
-        console.log(arrayPalavra);
         const index = (letra) => caracteresEspeciais.indexOf(letra) !== -1;
         return (arrayPalavra.some(index));
     }
@@ -30,7 +29,6 @@ export default function Letras(props) {
         if (game === 1) {
             caracteresEspeciais = setCaracteresEspeciais(letra);
             if(palavra.includes(letra) || contemCaractereEspecial(caracteresEspeciais, palavra)) {
-                console.log("acertou");
                 novoAcertos = [...acertos];
                 palavra.split("").forEach(element => {
                     if(element === letra)

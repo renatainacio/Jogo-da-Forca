@@ -20,8 +20,7 @@ export default function Jogo(props) {
 
     function iniciarJogo() {
         setGame(1);
-        //setPalavra(palavras.sort(comparador)[0]);
-        setPalavra("açaí");
+        setPalavra(palavras.sort(comparador)[0]);
         const novoErros = [];
         setErros(novoErros);
         const novoAcertos = [];

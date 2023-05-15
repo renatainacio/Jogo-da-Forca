@@ -23,6 +23,7 @@ export default function Chute(props) {
                 novoErros.push(chute[i]);
             setErros(novoErros);
         }
+        setChute('');
     }
     return (
         <form className="chute">                
