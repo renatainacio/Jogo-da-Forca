@@ -35,7 +35,7 @@ export default function Jogo(props) {
             <img src={imagemForca[numeroErros]} alt="forca" data-test="game-image"/>
             <div className='botao-palavra'>
                 <button onClick={iniciarJogo} data-test="choose-word">Escolher Palavra</button>
-                <ul data-test="word" className={`palavra ${palavra.length === acertos.length ? 'verde' : ''} ${erros.length === 6 ? 'vermelho' : ''}`}>{palavra.split("").map((letra, indice) =>
+                <ul data-test="word" className={`palavra ${palavra.length === acertos.length || chutouCerto === 1 ? 'verde' : ''} ${erros.length === 6 ? 'vermelho' : ''}`}>{palavra.split("").map((letra, indice) =>
                     <li key={indice}>{acertos.includes(letra) || numeroErros === 6 || chutouCerto === 1 ? letra : '_ '}</li>
                     )}</ul>
             </div>
