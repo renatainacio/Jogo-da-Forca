@@ -19,6 +19,7 @@ export default function Jogo(props) {
     function iniciarJogo() {
         setGame(1);
         setPalavra(palavras.sort(comparador)[0]);
+        console.log(palavra);
         const novoErros = [];
         setErros(novoErros);
     }
@@ -29,11 +30,11 @@ export default function Jogo(props) {
             <div className='botao-palavra'>
                 <button onClick={iniciarJogo} >Escolher Palavra</button>
                 <ul className='palavra'>{palavra.split("").map((letra, indice) =>
-                    <li key={indice}>{acertos.includes(letra) ? letra : '_  '}</li>
+                    <li key={indice}>{acertos.includes(letra) ? letra : '_ '}</li>
                     )}</ul>
             </div>
         </div>
-        <Letras game={game}/>
+        <Letras game={game} palavra={palavra} acertos={acertos} setAcertos={setAcertos} erros={erros} setErros={setErros}/>
       </div>
     );
 }
