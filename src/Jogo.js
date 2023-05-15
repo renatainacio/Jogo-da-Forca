@@ -9,20 +9,23 @@ import imagemForca6 from './assets/forca6.png'
 import Letras from './Letras'
 
 export default function Jogo(props) {
-    const {palavra, setPalavra, acertos, setAcertos, game, setGame, erros, setErros} = props;
+    let {palavra, setPalavra, acertos, setAcertos, game, setGame, erros, setErros} = props;
     const imagemForca = [imagemForca0, imagemForca1, imagemForca2, imagemForca3, imagemForca4, imagemForca5, imagemForca6];
-    const numeroErros = erros.length;
+    let numeroErros = erros.length;
+    console.log(numeroErros);
     function comparador() { 
         return Math.random() - 0.5; 
     }
     function iniciarJogo() {
         setGame(1);
         setPalavra(palavras.sort(comparador)[0]);
+        const novoErros = [];
+        setErros(novoErros);
     }
     return (
       <div>
         <div className='main'>
-            <img src={imagemForca[{numeroErros}]}/>
+            <img src={imagemForca[numeroErros]} alt="forca"/>
             <div className='botao-palavra'>
                 <button onClick={iniciarJogo} >Escolher Palavra</button>
                 <ul className='palavra'>{palavra.split("").map((letra, indice) =>
