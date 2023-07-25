@@ -3,7 +3,7 @@
 A Hangman game made with React
 
 # Overview
-<img src=https://github.com/renatainacio/TrackIt/blob/main/src/assets/Track-It.gif>
+<img src="https://github.com/renatainacio/Jogo-da-Forca/blob/main/src/assets/forca.gif">
 
 Try it out at: https://jogo-da-forca-7vgar4990-renatainacio.vercel.app/
 
